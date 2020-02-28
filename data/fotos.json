@@ -47,15 +47,6 @@
             "url" : "art_6.png",
             "width": 150,
             "height": 150
-        },
-        {
-            "id" : "7",
-            "omschrijving" : "nvt",
-            "naam" : "art7",
-            "url" : "art_7.png",
-            "width": 150,
-            "height": 150
         }
-    
     ]
 }

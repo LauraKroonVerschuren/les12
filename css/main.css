@@ -50,3 +50,27 @@ body {
 #gallery {
     margin: 0 auto;
 }
+
+#footer {
+    clear: both;
+    text-align: center;
+    width: 100%;
+    padding: 30px;
+}
+
+/* ----------------------------- fotoblok ----------------------------- */
+
+#fotoblok {
+    width: 500px;
+    height: 500px;
+    border: 2px solid #999;
+    background-color: #fff;
+    position: relative;
+    top: 0;
+    left: 10px;
+    z-index: 1;
+    box-shadow: 1px 3px 5px #666;
+    display: none;
+    overflow: hidden;
+    margin: 0 auto;
+}
