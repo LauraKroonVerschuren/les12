@@ -1,0 +1,8 @@
+*.jpg
+*.png
+
+images/**/*
+
+jquery.js
+
+node_modules/**/*
