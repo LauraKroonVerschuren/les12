@@ -3,7 +3,7 @@
        {
             "id" : "1",
             "omschrijving" : "nvt",
-            "naam" : "art1",
+            "naam" : "Infected",
             "url" : "art_1.png",
             "width": 150,
             "height": 150
@@ -11,7 +11,7 @@
         {
             "id" : "2",
             "omschrijving" : "nvt",
-            "naam" : "art2",
+            "naam" : "Blooming in darkness",
             "url" : "art_2.png",
             "width": 150,
             "height": 150
@@ -19,7 +19,7 @@
         {
             "id" : "3",
             "omschrijving" : "nvt",
-            "naam" : "art3",
+            "naam" : "Rotten inside",
             "url" : "art_3.png",
             "width": 150,
             "height": 150
@@ -27,7 +27,7 @@
         {
             "id" : "4",
             "omschrijving" : "nvt",
-            "naam" : "art4",
+            "naam" : "In the gutter",
             "url" : "art_4.png",
             "width": 150,
             "height": 150
@@ -35,7 +35,7 @@
         {
             "id" : "5",
             "omschrijving" : "nvt",
-            "naam" : "art5",
+            "naam" : "Dying flower",
             "url" : "art_5.png",
             "width": 150,
             "height": 150
@@ -43,7 +43,7 @@
         {
             "id" : "6",
             "omschrijving" : "nvt",
-            "naam" : "art6",
+            "naam" : "Girl",
             "url" : "art_6.png",
             "width": 150,
             "height": 150

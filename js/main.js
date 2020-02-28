@@ -2,7 +2,10 @@
 
 $(document).ready(function() {
     let version = '0.2.a',
-    fotolijst = [];
+    fotolijst = [],
+    fotoNum = 0,
+    aantalFotos = 0;
+
     var menuItem = $('#menu ul li');
 
     $('#gallery').show();
@@ -10,7 +13,7 @@ $(document).ready(function() {
 
 
     $.get("data/fotos.json", function(data, status){
-        let aantalFotos = data.fotos.length;
+        aantalFotos = data.fotos.length;
         let htmlStr = '';
 
         for (let i = 0; i < aantalFotos; i++) {
@@ -18,13 +21,13 @@ $(document).ready(function() {
 
 
             htmlStr += '<div class="foto-box">';
-            htmlStr += '<img src="images/small_' + fotolijst[i].url + '" width="" height="" alt="" class="thumb" />';
+            htmlStr += '<img src="images/small_' + fotolijst[i].url + '" width="" height="" alt="'+ fotolijst[i].naam +'" class="thumb" title="' + i + '"/>';
             htmlStr += '</div>';
         }
 
         $('#gallery .foto-row').html(htmlStr); 
         
-        console.log('fotos', data, status, data.fotos[1].url, aantalFotos);
+       
     
     });
     
@@ -35,6 +38,7 @@ $(document).ready(function() {
 
         let fotoSelect = evt.target,
             fotoSrc = $(fotoSelect).attr('src');
+        fotoNum = parseInt($(fotoSelect).attr('title'));
 
         if (fotoSrc != undefined) {
             let lastSlash = fotoSrc.lastIndexOf('/');
@@ -42,30 +46,56 @@ $(document).ready(function() {
             showFoto(fotoSrc);
 
         }
+      //  console.log('foto', fotoNum);   
 
-        // console.log('foto select', fotoSelect, fotoSrc, lastSlash);
     })   
 
 
-
-    $('#fotoblok').on('click', function(){
-            $('#fotoblok').slideUp(500);
-
-            console.log('sluit');
-    });
-
-
+// Foto laten zien --------------------------------
     function showFoto(fotoSrc) {
-            let fotoUrl = 'images/' + fotoSrc;
+            let fotoUrl = 'images/' + fotoSrc,
+                fotoName = fotolijst[fotoNum].naam;
 
             $('#fotoblok').slideDown(1000);
+            $('#fotoblok #fotoTitel').html(fotoName);
+            $('#fotoblok img.foto').attr('src', fotoUrl);
+       //     console.log('showFoto', fotoSrc, fotoUrl, fotoName);
 
-            $('#fotoblok img').attr('src', fotoUrl);
-
-      //  console.log('showfoto', fotoSrc, fotoUrl);
     }
+// Foto weghalen --------------------------------
+$('#fotoblok .foto').on('click', function(){
+    $('#fotoblok').slideUp(500);
+
+});
 
 
+$('#fotoblok .pijlLinks').on('click', function() {
+
+        if (fotoNum > 0 ){
+            fotoNum --;
+        }
+        else {
+            fotoNum = aantalFotos - 1;
+        }
+
+        let fotoSrc = fotolijst[fotoNum].url;
+        showFoto(fotoSrc);
+   // console.log('pijlLinks', fotoNum, aantalFotos);
+});
+
+$('#fotoblok .pijlRechts').on('click', function() {
+        if (fotoNum < aantalFotos - 1 ){
+             fotoNum ++;
+        }
+        else {
+           fotoNum = 0;
+        }
+
+        let fotoSrc = fotolijst[fotoNum].url;
+        showFoto(fotoSrc);
+        
+  //  console.log('pijlRechts', fotoNum, aantalFotos, fotoSrc);
+});
 
 
 
